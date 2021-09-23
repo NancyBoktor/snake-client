@@ -1,18 +1,17 @@
 const net = require("net");
 
+// handle movements
+
 // establishes a connection with the game server
 const connect = function () {
   const conn = net.createConnection({
-    port: 50542,
-    host: "135.23.223.133",
+    port: 50541,
+    host: "192.168.12.12",
   });
 
   conn.on("connect", () => {
     console.log("Successfully connected to game server");
-  });
-
-  conn.on("connect", () => {
-    conn.write("Name:NBS");
+    conn.write("Name: NBS");
   });
 
   conn.on("error", () => {
@@ -28,4 +27,5 @@ const connect = function () {
   return conn;
 };
 
+connect();
 module.exports = connect;
